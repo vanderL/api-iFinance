@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  #get 'account/create'
+
+  #get 'bank/create'
+  resources :bank, :defaults => { :format => :json } do
+      resources :account, :defaults => { :format => :json }
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

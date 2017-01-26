@@ -30,6 +30,7 @@ module RailsWithAngular
                 :headers => :any,
                 :methods => [:get, :post, :delete, :put, :options],
                 :max_age => 0
-        end
+          end
+      end
   end
 end
