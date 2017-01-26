@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  agency: 1
+  account_number: 1
+  balance: 9.99
+  balance_initial: 9.99
+  bank_id: 
+
+two:
+  title: MyString
+  agency: 1
+  account_number: 1
+  balance: 9.99
+  balance_initial: 9.99
+  bank_id: 
