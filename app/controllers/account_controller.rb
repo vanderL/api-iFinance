@@ -1,10 +1,10 @@
 class AccountController < ApplicationController
 
   def index
-      @accounts = Account.all
+      @account = Account.where(bank_id: params[:bank_id])
 
       respond_to do |format|
-          format.json { render json: @accounts }
+          format.json { render json: @account }
       end
 
   end
@@ -13,12 +13,23 @@ class AccountController < ApplicationController
 
 
   def create
-      @accounts = Account.create(account_params)
+      @account = Account.create(account_params)
 
       respond_to do |format|
-          format.json { render json: @accounts }
+          format.json { render json: @account }
       end
   end
+
+  def destroy
+      @account = Account.find(params[:id])
+      @account.destroy
+
+      respond_to do |format|
+         # format.json { render json: @account }
+         format.json { head :no_content }
+     end
+   end
+
 
 private
 

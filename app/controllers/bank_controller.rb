@@ -1,24 +1,33 @@
 class BankController < ApplicationController
 
     def index
-        @banks = Bank.all
+        @bank = Bank.all
 
         respond_to do |format|
-            format.json { render json: @banks }
+            format.json { render json: @bank }
         end
 
     end
-
-
 
 
     def create
-        @banks = Bank.create(bank_params)
+        @bank = Bank.create(bank_params)
 
         respond_to do |format|
-            format.json { render json: @banks }
+            format.json { render json: @bank }
         end
     end
+
+    def destroy
+        @bank = Bank.find(params[:id])
+        @bank.destroy
+
+        respond_to do |format|
+           # format.json { render json: @bank }
+           format.json { head :no_content }
+       end
+     end
+
 
 private
 
