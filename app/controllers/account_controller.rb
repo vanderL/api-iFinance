@@ -1,7 +1,7 @@
 class AccountController < ApplicationController
 
   def index
-      @account = Account.where(bank_id: params[:bank_id])
+      @account = Account.all
 
       respond_to do |format|
           format.json { render json: @account }
@@ -20,6 +20,16 @@ class AccountController < ApplicationController
       end
   end
 
+
+  def update
+      @account = Account.find(params[:id])
+      @account.update(account_params)
+      respond_to do |format|
+          format.json { render json: @account }
+      end
+  end
+
+
   def destroy
       @account = Account.find(params[:id])
       @account.destroy
@@ -33,10 +43,10 @@ class AccountController < ApplicationController
 
 private
 
-def account_params
-  params.require(:account)
-        .permit(:title, :agency, :account_number, :balance, :balance_initial, :bank_id,)
+  def account_params
+    params.require(:account)
+          .permit(:title, :agency, :account_number, :balance, :balance_initial, :bank_id,)
 
-end
+  end
 
 end

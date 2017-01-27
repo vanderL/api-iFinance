@@ -18,6 +18,14 @@ class BankController < ApplicationController
         end
     end
 
+    def update
+        @bank = Bank.find(params[:id])
+        @bank.update(bank_params)
+            respond_to do |format|
+                format.json { render json: @bank }
+    end
+
+
     def destroy
         @bank = Bank.find(params[:id])
         @bank.destroy
