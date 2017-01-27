@@ -6,8 +6,6 @@ Clone this repository, remove .git dir and run `bundle install`
 
 ## Usage
 
-Create your app in src diretory.
-
 Commands:
 
  - `rails serve` - run developer server in port 3000
